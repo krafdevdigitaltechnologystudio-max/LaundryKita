@@ -120,7 +120,7 @@ function sendWhatsApp() {
     var total = PRICES[service] * parseInt(quantity);
     var unit = UNITS[service];
 
-    var msg = 'Halo LaundryKita,\n\n';
+    var msg = 'Halo Laundry,\n\n';
     msg += 'Saya ingin melakukan pemesanan laundry.\n\n';
     msg += 'Nama: ' + name + '\n';
     msg += 'No. WhatsApp: ' + whatsapp + '\n';
