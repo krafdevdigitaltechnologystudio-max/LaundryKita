@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan — LaundryKita</title>
+    <meta name="description" content="Pesan laundry sekarang di LaundryKita. Isi form dan konfirmasi via WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .input-error {
+            border-color: #EF4444 !important;
+        }
+    </style>
+</head>
+<body class="bg-white text-[#262626] font-['Inter']">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-white border-b border-[#E5E5E5]">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="../index.html" class="text-[22px] font-semibold tracking-tight text-[#111111]">LaundryKita</a>
+                <div class="hidden lg:flex items-center gap-10">
+                    <a href="../index.html" class="text-sm font-medium text-[#737373] hover:text-[#111111] transition-colors duration-200">Home</a>
+                    <a href="layanan.html" class="text-sm font-medium text-[#737373] hover:text-[#111111] transition-colors duration-200">Layanan</a>
+                    <a href="harga.html" class="text-sm font-medium text-[#737373] hover:text-[#111111] transition-colors duration-200">Harga</a>
+                    <a href="kontak.html" class="text-sm font-medium text-[#737373] hover:text-[#111111] transition-colors duration-200">Kontak</a>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="pesan.html" class="inline-flex items-center px-6 py-2.5 bg-[#111111] text-white text-sm font-medium hover:bg-[#262626] transition-colors duration-200">Hubungi Kami</a>
+                </div>
+                <button id="hamburgerBtn" onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5">
+                    <span id="line1" class="w-5 h-[1.5px] bg-[#111111] transition-all duration-300"></span>
+                    <span id="line2" class="w-5 h-[1.5px] bg-[#111111] transition-all duration-300"></span>
+                    <span id="line3" class="w-5 h-[1.5px] bg-[#111111] transition-all duration-300"></span>
+                </button>
+            </div>
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+                <div class="py-4 pb-6 space-y-1">
+                    <a href="../index.html" class="block px-4 py-3 text-sm font-medium text-[#737373]">Home</a>
+                    <a href="layanan.html" class="block px-4 py-3 text-sm font-medium text-[#737373]">Layanan</a>
+                    <a href="harga.html" class="block px-4 py-3 text-sm font-medium text-[#737373]">Harga</a>
+                    <a href="kontak.html" class="block px-4 py-3 text-sm font-medium text-[#737373]">Kontak</a>
+                    <div class="px-4 pt-3">
+                        <a href="pesan.html" class="block text-center px-6 py-2.5 bg-[#111111] text-white text-sm font-medium">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-white">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-8 py-20 md:py-28">
+            <span class="inline-block text-[11px] font-semibold tracking-[0.15em] uppercase text-[#737373] mb-4">Pesan</span>
+            <h1 class="text-[32px] md:text-[40px] font-bold tracking-tight text-[#111111] mb-4 leading-tight">Pesan Laundry</h1>
+            <p class="text-[#737373] text-[17px] max-w-[560px] leading-relaxed">Isi form di bawah untuk melakukan pemesanan laundry.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="bg-white border-t border-[#E5E5E5]">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-8 py-20 md:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+                <!-- Form -->
+                <div class="lg:col-span-7 fade-in">
+                    <form id="orderForm" onsubmit="return false;" novalidate>
+                        <div class="space-y-6">
+                            <!-- Nama -->
+                            <div>
+                                <label for="fullName" class="block text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-2">Nama Lengkap</label>
+                                <input type="text" id="fullName" placeholder="Masukkan nama Anda" class="w-full px-4 py-3 border border-[#E5E5E5] text-sm text-[#111111] placeholder-[#D1D5DB] focus:outline-none focus:border-[#111111] transition-colors duration-200 bg-white">
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div>
+                                <label for="whatsapp" class="block text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-2">Nomor WhatsApp</label>
+                                <input type="tel" id="whatsapp" placeholder="08xxxxxxxxxx" class="w-full px-4 py-3 border border-[#E5E5E5] text-sm text-[#111111] placeholder-[#D1D5DB] focus:outline-none focus:border-[#111111] transition-colors duration-200 bg-white">
+                            </div>
+
+                            <!-- Layanan -->
+                            <div>
+                                <label for="service" class="block text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-2">Layanan</label>
+                                <select id="service" class="w-full px-4 py-3 border border-[#E5E5E5] text-sm text-[#111111] focus:outline-none focus:border-[#111111] transition-colors duration-200 bg-white appearance-none" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23737373%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpolyline points=%226 9 12 15 18 9%22%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px;">
+                                    <option value="" disabled selected>Pilih layanan</option>
+                                    <option value="Cuci Kering">Cuci Kering — Rp7.000/kg</option>
+                                    <option value="Cuci Setrika">Cuci Setrika — Rp10.000/kg</option>
+                                    <option value="Setrika">Setrika — Rp5.000/kg</option>
+                                    <option value="Laundry Sepatu">Laundry Sepatu — Rp20.000/pasang</option>
+                                </select>
+                            </div>
+
+                            <!-- Jumlah -->
+                            <div>
+                                <label for="quantity" class="block text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-2">Jumlah</label>
+                                <input type="number" id="quantity" min="1" value="1" placeholder="1" class="w-full px-4 py-3 border border-[#E5E5E5] text-sm text-[#111111] placeholder-[#D1D5DB] focus:outline-none focus:border-[#111111] transition-colors duration-200 bg-white">
+                            </div>
+
+                            <!-- Catatan -->
+                            <div>
+                                <label for="notes" class="block text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-2">Catatan <span class="font-normal normal-case tracking-normal">(opsional)</span></label>
+                                <textarea id="notes" rows="3" placeholder="Catatan tambahan..." class="w-full px-4 py-3 border border-[#E5E5E5] text-sm text-[#111111] placeholder-[#D1D5DB] focus:outline-none focus:border-[#111111] transition-colors duration-200 bg-white resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Price Estimate -->
+                        <div id="estimateBox" class="hidden mt-8 p-6 border border-[#E5E5E5]">
+                            <p class="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-3">Estimasi Harga</p>
+                            <p id="priceBreakdown" class="text-sm text-[#737373] mb-4"></p>
+                            <div class="border-t border-[#E5E5E5] pt-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-[#111111]">Estimasi Total</span>
+                                    <span id="totalPrice" class="text-xl font-bold text-[#111111]"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="mt-8">
+                            <button type="button" onclick="sendWhatsApp()" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-[#111111] text-white text-sm font-medium hover:bg-[#262626] transition-colors duration-200">
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="lg:col-span-5 fade-in">
+                    <div class="lg:sticky lg:top-28">
+                        <p class="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-6">Cara Memesan</p>
+                        <div class="space-y-0 border-t border-[#E5E5E5]">
+                            <div class="py-5 border-b border-[#E5E5E5] flex gap-5">
+                                <span class="text-sm font-medium text-[#D1D5DB]">01</span>
+                                <div>
+                                    <h4 class="text-sm font-medium text-[#111111] mb-1">Pilih Layanan</h4>
+                                    <p class="text-sm text-[#737373]">Tentukan jenis layanan yang dibutuhkan.</p>
+                                </div>
+                            </div>
+                            <div class="py-5 border-b border-[#E5E5E5] flex gap-5">
+                                <span class="text-sm font-medium text-[#D1D5DB]">02</span>
+                                <div>
+                                    <h4 class="text-sm font-medium text-[#111111] mb-1">Isi Formulir</h4>
+                                    <p class="text-sm text-[#737373]">Lengkapi data diri dan detail pesanan.</p>
+                                </div>
+                            </div>
+                            <div class="py-5 border-b border-[#E5E5E5] flex gap-5">
+                                <span class="text-sm font-medium text-[#D1D5DB]">03</span>
+                                <div>
+                                    <h4 class="text-sm font-medium text-[#111111] mb-1">Kirim Pesanan</h4>
+                                    <p class="text-sm text-[#737373]">Pesanan otomatis dikirim ke WhatsApp kami.</p>
+                                </div>
+                            </div>
+                            <div class="py-5 border-b border-[#E5E5E5] flex gap-5">
+                                <span class="text-sm font-medium text-[#D1D5DB]">04</span>
+                                <div>
+                                    <h4 class="text-sm font-medium text-[#111111] mb-1">Konfirmasi</h4>
+                                    <p class="text-sm text-[#737373]">Tim kami akan mengkonfirmasi pesanan Anda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#111111] border-t border-[#262626]">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-8 py-16 md:py-20">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+                <div class="md:col-span-5">
+                    <a href="../index.html" class="text-lg font-semibold text-white tracking-tight">LaundryKita</a>
+                    <p class="text-sm text-[#737373] mt-3 leading-relaxed max-w-[300px]">Professional laundry service untuk kebutuhan Anda.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-4">Perusahaan</p>
+                    <ul class="space-y-3">
+                        <li><a href="kontak.html" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Tentang Kami</a></li>
+                        <li><a href="layanan.html" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Layanan</a></li>
+                        <li><a href="harga.html" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Harga</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-4">Bantuan</p>
+                    <ul class="space-y-3">
+                        <li><a href="kontak.html" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">FAQ</a></li>
+                        <li><a href="kontak.html" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="text-[11px] font-semibold tracking-[0.1em] uppercase text-[#737373] mb-4">Legal</p>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm text-[#A3A3A3] hover:text-white transition-colors duration-200">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-[#262626] mt-14 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-[#525252]">&copy; 2026 LaundryKita. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
